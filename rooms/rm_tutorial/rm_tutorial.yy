@@ -1,6 +1,6 @@
 {
   "$GMRoom":"v1",
-  "%Name":"rm_inicio",
+  "%Name":"rm_tutorial",
   "creationCodeFile":"",
   "inheritCode":false,
   "inheritCreationOrder":false,
@@ -16,7 +16,7 @@
     {"$GMRBackgroundLayer":"","%Name":"bg_1","animationFPS":30.0,"animationSpeedType":0,"colour":2583661817,"depth":500,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"bg_1","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":{"name":"spr_bg1","path":"sprites/spr_bg1/spr_bg1.yy",},"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.2,"vtiled":true,"x":0,"y":0,},
     {"$GMRBackgroundLayer":"","%Name":"bg_0","animationFPS":30.0,"animationSpeedType":0,"colour":4294947567,"depth":600,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"bg_0","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":{"name":"spr_bg0","path":"sprites/spr_bg0/spr_bg0.yy",},"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.1,"vtiled":true,"x":0,"y":0,},
   ],
-  "name":"rm_inicio",
+  "name":"rm_tutorial",
   "parent":{
     "name":"Rooms",
     "path":"folders/Rooms.yy",
