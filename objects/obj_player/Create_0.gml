@@ -4,12 +4,20 @@
 
 #region Variáveis
 
-// Variável de velocidade
+// Variável de velocidade do jogador
 vel = 3;
+
+// Variável de espera do tiro
+espera_tiro = 9;
+
+// Variável to timer do tiro
+timer_tiro = 0;
 
 #endregion
 
 // Método de controle do jogador
+
+#region Métodos
 
 controla_player = function()
 {
@@ -31,7 +39,7 @@ controla_player = function()
 	_dire = keyboard_check(ord("D")) or keyboard_check(vk_right);
 	
 	// Atirando (tecla Espaço ou botão esquerdo do mouse)
-	_atirar = keyboard_check_pressed(vk_space) or mouse_check_button_pressed(mb_left);
+	_atirar = keyboard_check(vk_space) or mouse_check_button(mb_left);
 	
 	#endregion
 	
@@ -57,12 +65,30 @@ controla_player = function()
 	
 	#region Tiro do jogador
 	
-	// Criando o tiro quando aperta a tecla
-	if (_atirar)
+	// Diminuindo o timer do tiro
+	timer_tiro--;
+	
+	// Criando o tiro quando aperta a tecla e se o timer estiver zerado
+	if (_atirar && timer_tiro <= 0)
 	{
-		// Cria a instância do tiro na camada necessária
-		instance_create_layer(x, y, "tiro", obj_tiro);
+		// Cria e salva a instância do tiro
+		var _tiro = instance_create_layer(x, y, "tiro", obj_tiro_player);
+		
+		// Definindo o timer do tiro com o tempo de espera
+		timer_tiro = espera_tiro;
 	}
 	
 	#endregion
+	
+	#region Limites de tela
+	
+	// Limitando a nave no eixo X para dentro da tela
+	x = clamp(x, sprite_width, room_width - (sprite_width / 2));
+	
+	// Limitando a nave no eixo Y para dentro da tela
+	y = clamp(y, sprite_height / 2, room_height - (sprite_height / 2));
+	
+	#endregion
 }
+
+#endregion
