@@ -4,14 +4,20 @@
 
 #region Variáveis
 
-// Variável de velocidade do jogador
-vel = 3;
+// Velocidade do jogador
+vel_jogador = 3;
 
-// Variável de espera do tiro
+// Velocidade dos tiros
+vel_tiros = -10
+
+// Espera dos tiros
 espera_tiro = 9;
 
-// Variável to timer do tiro
+// Ttimer dos tiros
 timer_tiro = 0;
+
+// Level do meu tiro
+level_tiro = 1;
 
 #endregion
 
@@ -19,76 +25,131 @@ timer_tiro = 0;
 
 #region Métodos
 
-controla_player = function()
-{
-	#region Definindo as teclas
+	#region Controles do jogador
 	
-	// Pegando as teclas
-	var _cima, _baixo, _esqu, _dire, _atirar;
-	
-	// Indo para cima (tecla W ou Cima)
-	_cima = keyboard_check(ord("W")) or keyboard_check(vk_up);
-	
-	// Indo para baixo (tecla S ou Baixo)
-	_baixo = keyboard_check(ord("S")) or keyboard_check(vk_down);
-	
-	// Indo para esquerda (tecla A ou Esquerda)
-	_esqu = keyboard_check(ord("A")) or keyboard_check(vk_left);
-	
-	// Indo para a direita (tecla D ou Direita)
-	_dire = keyboard_check(ord("D")) or keyboard_check(vk_right);
-	
-	// Atirando (tecla Espaço ou botão esquerdo do mouse)
-	_atirar = keyboard_check(vk_space) or mouse_check_button(mb_left);
-	
-	#endregion
-	
-	#region Movimentação horizontal
-	
-	// Velocidade horizontal
-	var _velh = (_dire - _esqu) * vel;
-	
-	// Se movendo no X
-	x += _velh;
-	
-	#endregion
-	
-	#region Movimentação vertical
-	
-	// Velocidade vertical
-	var _velv = (_baixo - _cima) * vel;
-	
-	// Se movendo em Y
-	y += _velv;
-	
-	#endregion
-	
-	#region Tiro do jogador
-	
-	// Diminuindo o timer do tiro
-	timer_tiro--;
-	
-	// Criando o tiro quando aperta a tecla e se o timer estiver zerado
-	if (_atirar && timer_tiro <= 0)
+	controla_player = function()
 	{
-		// Cria e salva a instância do tiro
-		var _tiro = instance_create_layer(x, y, "tiro", obj_tiro_player);
+		#region Definindo as teclas
+	
+		// Pegando as teclas
+		var _cima, _baixo, _esqu, _dire, _atirar;
+	
+		// Indo para cima (tecla W ou Cima)
+		_cima = keyboard_check(ord("W")) or keyboard_check(vk_up);
+	
+		// Indo para baixo (tecla S ou Baixo)
+		_baixo = keyboard_check(ord("S")) or keyboard_check(vk_down);
+	
+		// Indo para esquerda (tecla A ou Esquerda)
+		_esqu = keyboard_check(ord("A")) or keyboard_check(vk_left);
+	
+		// Indo para a direita (tecla D ou Direita)
+		_dire = keyboard_check(ord("D")) or keyboard_check(vk_right);
+	
+		// Atirando (tecla Espaço ou botão esquerdo do mouse)
+		_atirar = keyboard_check(vk_space) or mouse_check_button(mb_left);
+	
+		#endregion
+	
+		#region Movimentação horizontal
+	
+		// Velocidade horizontal
+		var _velh = (_dire - _esqu) * vel_jogador;
+	
+		// Se movendo no X
+		x += _velh;
+	
+		#endregion
+	
+		#region Movimentação vertical
+	
+		// Velocidade vertical
+		var _velv = (_baixo - _cima) * vel_jogador;
+	
+		// Se movendo em Y
+		y += _velv;
+	
+		#endregion
+	
+		#region Tiros do jogador
+	
+		// Diminuindo o timer dos tiros
+		timer_tiro--;
+	
+		// Criando o tiro quando aperta a tecla e se o timer estiver zerado
+		if (_atirar && timer_tiro <= 0)
+		{	
+			// Checando o nível do tiro
+			if(level_tiro == 1)
+			{
+				// Criando o tiro no meio
+				tiro_meio();
+			}
+			else if(level_tiro == 2)
+			{
+				// Criando o tiro nos lados
+				tiros_lados();
+			}
+			else if(level_tiro == 3)
+			{
+				// Criando os 3 tiros
+				tiros_maximo();
+			}
 		
-		// Definindo o timer do tiro com o tempo de espera
-		timer_tiro = espera_tiro;
+			// Definindo o timer dos tiros com o tempo de espera
+			timer_tiro = espera_tiro;
+		}
+	
+		#endregion
+	
+		#region Limites de tela
+	
+		// Limitando a nave no eixo X para dentro da tela
+		x = clamp(x, sprite_width, room_width - (sprite_width / 2));
+	
+		// Limitando a nave no eixo Y para dentro da tela
+		y = clamp(y, sprite_height / 2, room_height - (sprite_height / 2));
+	
+		#endregion
 	}
 	
 	#endregion
+
+	#region Criando os tiros
 	
-	#region Limites de tela
+	tiro_meio = function()
+	{
+		// Criando o tiro no meio da nave
+		var _tiro = instance_create_layer(x, y - 3, "tiros", obj_tiro_player);
+		
+		// Definindo a velocidade
+		_tiro.vspeed = vel_tiros;
+	}
 	
-	// Limitando a nave no eixo X para dentro da tela
-	x = clamp(x, sprite_width, room_width - (sprite_width / 2));
+	tiros_lados = function()
+	{
+		// Criando o tiro no lado esquerdo
+		var _tiro_esqu = instance_create_layer(x - 7, y, "tiros", obj_tiro_player);
+		
+		// Definindo a velocidade do tiro da esquerda
+		_tiro_esqu.vspeed = vel_tiros;
+		
+		// Criando o tiro no lado direito
+		var _tiro_dire = instance_create_layer(x + 7, y, "tiros", obj_tiro_player);
+		
+		// Definindo a velocidade do tiro da esquerda
+		_tiro_dire.vspeed = vel_tiros;
+	}
 	
-	// Limitando a nave no eixo Y para dentro da tela
-	y = clamp(y, sprite_height / 2, room_height - (sprite_height / 2));
+	tiros_maximo = function()
+	{
+		// Criando o tiro do meio
+		tiro_meio();
+		
+		// Criando os tiros do lado
+		tiros_lados();
+	}
 	
 	#endregion
-}
 
 #endregion
