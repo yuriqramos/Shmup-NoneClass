@@ -105,7 +105,7 @@ level_tiro = 1;
 		#region Limites de tela
 	
 		// Limitando a nave no eixo X para dentro da tela
-		x = clamp(x, sprite_width, room_width - (sprite_width / 2));
+		x = clamp(x, sprite_width / 2, room_width - (sprite_width / 2));
 	
 		// Limitando a nave no eixo Y para dentro da tela
 		y = clamp(y, sprite_height / 2, room_height - (sprite_height / 2));
@@ -148,6 +148,21 @@ level_tiro = 1;
 		
 		// Criando os tiros do lado
 		tiros_lados();
+	}
+	
+	ganha_level_tiro = function()
+	{
+		// Checa se já está no level máximo
+		if(level_tiro >= 3)
+		{
+			// Limita o level máximo
+			level_tiro = 3;
+		}
+		else
+		{
+			// Aumenta o level
+			level_tiro++;
+		}
 	}
 	
 	#endregion

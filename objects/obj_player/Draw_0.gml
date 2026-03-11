@@ -1,5 +1,11 @@
+///@description Desenhando a UI e debug
+
+
 draw_self();
 
-draw_text(room_width / 2, 50, "Level do tiro: " + string(level_tiro));
-
-draw_set_halign(fa_center);
+// Ativa e desativa o debug
+if(global.debug)
+{
+	// Debug do level do tiro
+	draw_text(x, y + 10, level_tiro);
+}
