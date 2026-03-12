@@ -10,6 +10,12 @@ vel_jogador = 3;
 // Velocidade dos tiros
 vel_tiros = -10
 
+// Vidas
+vidas = 3;
+
+// Escudos
+escudos = 3;
+
 // Espera dos tiros
 espera_tiro = 9;
 
