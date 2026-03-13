@@ -172,5 +172,36 @@ level_tiro = 1;
 	}
 	
 	#endregion
+	
+	#region Desenhando os ícones
+	
+	/*desenha_icones = function(_icone)
+	{	
+		// Variável da index do sprite a ser desenhado
+		var _icone_sprite;
+		
+		// Variável da quantidade de vezes que o ícone será desenhado
+		var _quantidade = 0;
+		
+		// Variável da altura da tela
+		var _altura_tela = display_get_gui_height();
+		
+		// Variável de espaçamento entre os ícones
+		var _espacamento = 1;
+		
+		// Checa qual ícone foi escolhido
+		if (_icone == 
+		// Desenhando os ícones com o laço repeat
+		repeat(vidas)
+		{
+			// Desenha os ícone
+			draw_sprite_ext(spr_gui_vidas, 0, 25 * _espacamento, _altura_tela - 100, 1, 1, 0, c_white, 1);
+	
+			// Incremento do espaçamento para mudar a posição em X
+			_espacamento++;
+		}
+	}*/
+	
+	#endregion
 
 #endregion
