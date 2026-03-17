@@ -9,3 +9,12 @@ if(keyboard_check_released(vk_tab))
 	// Inverte o valor atual do debug
 	global.debug = !global.debug;
 }
+
+if(keyboard_check_pressed(vk_enter))
+{
+	perde_vida();
+}
+
+if(keyboard_check_pressed(ord("E"))){
+	usa_escudo();	
+}

@@ -175,32 +175,57 @@ level_tiro = 1;
 	
 	#region Desenhando os ícones
 	
-	/*desenha_icones = function(_icone)
+	// Função com três parâmetros, icone pega o sprite, qtd para a quantidade e pos_y para a posição no eixo y
+	desenha_icones = function(_icone = spr_icone_vida, _qtd = vidas, _pos_y = 0)
 	{	
-		// Variável da index do sprite a ser desenhado
-		var _icone_sprite;
-		
-		// Variável da quantidade de vezes que o ícone será desenhado
-		var _quantidade = 0;
-		
 		// Variável da altura da tela
 		var _altura_tela = display_get_gui_height();
 		
 		// Variável de espaçamento entre os ícones
 		var _espacamento = 1;
 		
-		// Checa qual ícone foi escolhido
-		if (_icone == 
 		// Desenhando os ícones com o laço repeat
-		repeat(vidas)
+		repeat(_qtd)
 		{
 			// Desenha os ícone
-			draw_sprite_ext(spr_gui_vidas, 0, 25 * _espacamento, _altura_tela - 100, 1, 1, 0, c_white, 1);
+			draw_sprite_ext(_icone, 0, 40 * _espacamento, _pos_y, 1.5, 1.5, 0, c_white, 1);
 	
 			// Incremento do espaçamento para mudar a posição em X
 			_espacamento++;
 		}
-	}*/
+	}
+	
+	#endregion
+	
+	#region Perde vida
+	
+	perde_vida = function()
+	{
+		// Checa se o jogador ficou sem vidas
+		if(vidas <= 1)
+		{
+			// Destrói o jogador
+			instance_destroy();
+		}
+		else
+		{
+			// Diminui a vida do jogador
+			vidas--;
+		}
+	
+	}
+	
+	#endregion
+	
+	#region Usa escudo
+	
+	usa_escudo = function()
+	{
+		// Diminui o escudo
+		escudos--;
+		
+		instance_create_layer(x, y, "escudo", obj_escudo);
+	}
 	
 	#endregion
 
