@@ -16,6 +16,8 @@ vidas = 3;
 // Escudos
 escudos = 3;
 
+meu_escudo = noone;
+
 // Espera dos tiros
 espera_tiro = 9;
 
@@ -221,10 +223,15 @@ level_tiro = 1;
 	
 	usa_escudo = function()
 	{
-		// Diminui o escudo
-		escudos--;
+		// Checa se o jogador ainda tem escudos e não tiver escudo ativo
+		if (escudos > 0 && meu_escudo == noone)
+		{
+			// Diminui a quantidade de escudos
+			escudos--;
 		
-		instance_create_layer(x, y, "escudo", obj_escudo);
+			// Cria o escudo
+			meu_escudo = instance_create_layer(x, y, "escudo", obj_escudo);
+		}
 	}
 	
 	#endregion

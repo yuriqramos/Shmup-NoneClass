@@ -40,7 +40,7 @@
   "name":"Shmup-NoneClass",
   "resources":[
     {"id":{"name":"obj_escudo","path":"objects/obj_escudo/obj_escudo.yy",},},
-    {"id":{"name":"obj_explosao","path":"objects/obj_explosao/obj_explosao.yy",},},
+    {"id":{"name":"obj_particulas","path":"objects/obj_particulas/obj_particulas.yy",},},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
     {"id":{"name":"obj_powerup_tiro","path":"objects/obj_powerup_tiro/obj_powerup_tiro.yy",},},
     {"id":{"name":"obj_tiro_player","path":"objects/obj_tiro_player/obj_tiro_player.yy",},},

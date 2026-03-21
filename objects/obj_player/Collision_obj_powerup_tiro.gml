@@ -7,4 +7,4 @@ instance_destroy(other);
 ganha_level_tiro();
 
 // Cria o efeito de explosçaõ na posição do powerup
-instance_create_layer(other.x, other.y, layer, obj_explosao);
+instance_create_layer(other.x, other.y, layer, obj_particulas);
