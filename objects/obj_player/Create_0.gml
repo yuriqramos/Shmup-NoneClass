@@ -21,7 +21,7 @@ meu_escudo = noone;
 // Espera dos tiros
 espera_tiro = 9;
 
-// Ttimer dos tiros
+// Ttimer dos tiroseee
 timer_tiro = 0;
 
 // Tempo de invencibilidade
@@ -46,7 +46,7 @@ level_tiro = 1;
 		#region Definindo as teclas
 	
 		// Pegando as teclas
-		var _cima, _baixo, _esqu, _dire, _atirar;
+		var _cima, _baixo, _esqu, _dire, _atirar, _escudo;
 	
 		// Indo para cima (tecla W ou Cima)
 		_cima = keyboard_check(ord("W")) or keyboard_check(vk_up);
@@ -62,6 +62,9 @@ level_tiro = 1;
 	
 		// Atirando (tecla Espaço ou botão esquerdo do mouse)
 		_atirar = keyboard_check(vk_space) or mouse_check_button(mb_left);
+		
+		// Usando o escudo
+		_escudo = keyboard_check_pressed(ord("E"));
 	
 		#endregion
 	
@@ -126,10 +129,20 @@ level_tiro = 1;
 	
 		#endregion
 		
-		#region Extras
+		#region Invincibilidade e escudo
+		
+		// Checa se apertou a tecla para usar o escudo
+		if(_escudo)
+		{
+			// Cria o escudo
+			usa_escudo();	
+		}
 		
 		// Diminui o timer invencível
 		timer_invencivel--;
+		
+		// Método que checa se o escudo está sendo usado
+		com_escudo();
 		
 		#endregion
 	}
@@ -250,6 +263,29 @@ level_tiro = 1;
 		
 			// Cria o escudo
 			meu_escudo = instance_create_layer(x, y, "escudo", obj_escudo);
+		}
+	}
+	
+	#endregion
+	
+	#region Com escudo
+	
+	com_escudo = function()
+	{
+		// Checa se o jogador tem um escudo
+		if(instance_exists(meu_escudo))
+		{
+			// Faz o escudo seguir o jogador
+			meu_escudo.x = x;
+			meu_escudo.y = y;
+	
+			// Define o timer de invencibilidade
+			timer_invencivel = tempo_invencivel;
+		}
+		else
+		{
+			// Define o escudo como vazio
+			meu_escudo = noone;
 		}
 	}
 	

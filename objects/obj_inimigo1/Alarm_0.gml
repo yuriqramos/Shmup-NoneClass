@@ -4,4 +4,4 @@
 instance_create_layer(x, y, "tiros", obj_inimigo1_tiro);
 
 // Toca o alarme novamente (em 1 seg)
-alarm[0] = tempo_alarme;
+alarm[0] = tempo_alarme * random_range(1, 2);
