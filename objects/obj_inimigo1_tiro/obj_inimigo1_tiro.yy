@@ -1,15 +1,17 @@
 {
   "$GMObject":"",
-  "%Name":"obj_powerup_tiro",
+  "%Name":"obj_inimigo1_tiro",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_powerup_tiro",
+  "name":"obj_inimigo1_tiro",
   "overriddenProperties":[],
   "parent":{
-    "name":"Powerups",
-    "path":"folders/Objects/Powerups.yy",
+    "name":"Inimigos",
+    "path":"folders/Objects/Inimigos.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -30,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_powerup_tiro",
-    "path":"sprites/spr_powerup_tiro/spr_powerup_tiro.yy",
+    "name":"spr_inimigo1_tiro",
+    "path":"sprites/spr_inimigo1_tiro/spr_inimigo1_tiro.yy",
   },
   "spriteMaskId":null,
   "visible":true,

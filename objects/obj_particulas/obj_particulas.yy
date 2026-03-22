@@ -8,8 +8,8 @@
   "name":"obj_particulas",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Misc",
+    "path":"folders/Objects/Misc.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -30,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_powerup_particulas",
-    "path":"sprites/spr_powerup_particulas/spr_powerup_particulas.yy",
+    "name":"spr_particulas",
+    "path":"sprites/spr_particulas/spr_particulas.yy",
   },
   "spriteMaskId":null,
   "visible":true,

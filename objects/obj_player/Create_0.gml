@@ -24,6 +24,12 @@ espera_tiro = 9;
 // Ttimer dos tiros
 timer_tiro = 0;
 
+// Tempo de invencibilidade
+tempo_invencivel = game_get_speed(gamespeed_fps);
+
+// Timer de invencibilidade
+timer_invencivel = 0
+
 // Level do meu tiro
 level_tiro = 1;
 
@@ -119,6 +125,13 @@ level_tiro = 1;
 		y = clamp(y, sprite_height / 2, room_height - (sprite_height / 2));
 	
 		#endregion
+		
+		#region Extras
+		
+		// Diminui o timer invencível
+		timer_invencivel--;
+		
+		#endregion
 	}
 	
 	#endregion
@@ -203,8 +216,11 @@ level_tiro = 1;
 	
 	perde_vida = function()
 	{
+		// Se o jogador estiver invencível, sai da função
+		if(timer_invencivel > 0) return; 
+		
 		// Checa se o jogador ficou sem vidas
-		if(vidas <= 1)
+		if(vidas <= 0)
 		{
 			// Destrói o jogador
 			instance_destroy();
@@ -213,6 +229,9 @@ level_tiro = 1;
 		{
 			// Diminui a vida do jogador
 			vidas--;
+			
+			// Começa o tempo de invencibilidade
+			timer_invencivel = tempo_invencivel;
 		}
 	
 	}
