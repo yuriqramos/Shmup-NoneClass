@@ -1,4 +1,4 @@
-///@description Checa o movimento e os tiros
+///@description Movimento e debug
 
 //Controlando o jogador
 controla_player();

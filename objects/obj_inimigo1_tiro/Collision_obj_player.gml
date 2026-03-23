@@ -4,4 +4,4 @@
 other.perde_vida();
 
 // Função de morte
-morrendo();
+sendo_destruido(obj_particulas);

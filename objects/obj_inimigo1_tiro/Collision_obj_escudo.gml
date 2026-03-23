@@ -1,4 +1,4 @@
 ///@description Colidindo com o escudo
 
 // Função de morte
-morrendo();
+sendo_destruido(obj_particulas);
