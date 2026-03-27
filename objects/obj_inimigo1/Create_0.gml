@@ -3,6 +3,9 @@
 // Variável do tempo para tocar o alarme (1 seg)
 tempo_alarme = game_get_speed(gamespeed_fps);
 
+// Descobrindo se eu fui criado em uma sequência
+criado_em_sequencia = in_sequence;
+
 // Método de morte e criação do powerup
 morrendo = function()
 {

@@ -19,7 +19,7 @@ escudos = 3;
 meu_escudo = noone;
 
 // Espera dos tiros
-espera_tiro = 9;
+espera_tiro = 10;
 
 // Ttimer dos tiroseee
 timer_tiro = 0;
