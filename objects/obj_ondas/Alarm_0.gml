@@ -10,13 +10,13 @@ if (onda_atual >= array_length(ondas))
 	layer_sequence_create("sq_inimigos", 0, 0, ondas[onda_atual]);
 }
 else
-{
-	// Avança o contador da onda para a próxima
-	onda_atual++;
-	
+{	
 	// Criando a onda
 	layer_sequence_create("sq_inimigos", 0, 0, ondas[onda_atual]);
+	
+	// Avança o contador da onda para a próxima
+	onda_atual++;
 }
 
 // Toca o alarme de novo para criar a próxima onda
-alarm[0] = 600 // 10 segundos
+//alarm[0] = 600 // 10 segundos

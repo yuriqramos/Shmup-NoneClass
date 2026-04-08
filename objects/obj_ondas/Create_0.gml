@@ -7,4 +7,4 @@ ondas = [sq_onda1, sq_onda2];
 onda_atual = 0;
 
 // Tocando o alarme para a próxima sequência
-alarm[0] = 120 // 2 segundos
+//alarm[0] = 120 // 2 segundos
