@@ -53,7 +53,23 @@ maquina_de_estado = function()
 		
 		case "atirando":
 		{
+			// Direção do tiro
+			var _dir = point_direction(x, y, obj_player.x, obj_player.y);
 			
+			// Criando o tiro 1
+			var _tiro = instance_create_layer(x, y, "tiros", obj_inimigo3_tiro1);
+			
+			// Definindo a velocidade do tiro
+			_tiro.speed = 2;
+			
+			// Definindo a direção do tiro
+			_tiro.direction = _dir;
+			
+			//Resetando o timer
+			timer_carregando = 0;
+			
+			// Mudando o estado para carregando
+			estado = "carregando";
 		}
 	}
 	

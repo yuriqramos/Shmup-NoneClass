@@ -1,15 +1,18 @@
 {
   "$GMObject":"",
-  "%Name":"obj_inimigo3_tiro",
+  "%Name":"obj_inimigo3_tiro2",
   "eventList":[],
   "managed":true,
-  "name":"obj_inimigo3_tiro",
+  "name":"obj_inimigo3_tiro2",
   "overriddenProperties":[],
   "parent":{
     "name":"Inimigo 3",
     "path":"folders/Objects/Inimigos/Inimigo 3.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_inimigo1_tiro",
+    "path":"objects/obj_inimigo1_tiro/obj_inimigo1_tiro.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -28,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_inimigo3_tiro",
-    "path":"sprites/spr_inimigo3_tiro/spr_inimigo3_tiro.yy",
+    "name":"spr_inimigo3_tiro2",
+    "path":"sprites/spr_inimigo3_tiro2/spr_inimigo3_tiro2.yy",
   },
   "spriteMaskId":null,
   "visible":true,
