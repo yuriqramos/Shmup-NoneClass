@@ -232,11 +232,17 @@ level_tiro = 1;
 		// Se o jogador estiver invencível, sai da função
 		if(timer_invencivel > 0) return; 
 		
+		// Tremendo a tela quando leva dano
+		tremendo_tela(20);
+		
 		// Checa se o jogador ficou sem vidas
 		if(vidas <= 0)
 		{
 			// Destrói o jogador
 			instance_destroy();
+			
+			// Treme a tela mais forte
+			tremendo_tela(50);
 		}
 		else
 		{
