@@ -12,6 +12,9 @@ morrendo = function()
 	// Cria a explosão do jogador
 	sendo_destruido(obj_inimigo_explosao);
 	
+	// Treme a tela
+	tremendo_tela(5);
+	
 	// Variável de chance de criar o powerup
 	var _chance = random(100);
 	

@@ -175,11 +175,17 @@ morrendo = function ()
 	// Perdendo vida
 	vida--;
 	
+	// Tremendo tela
+	tremendo_tela(5);
+	
 	// SE não tiver mais vida
 	if(vida <= 0)
 	{
 		// Destruindo o inimigo
 		sendo_destruido(obj_inimigo_explosao);
+		
+		// Treme a tela
+		tremendo_tela(10);
 	}
 }
 
