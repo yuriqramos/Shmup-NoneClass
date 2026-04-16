@@ -3,6 +3,10 @@
 //Controlando o jogador
 controla_player();
 
+// Mudando o tamanho do player para o normal
+xscale = lerp(xscale, 1, .3);
+yscale = lerp(yscale, 1, .3);
+
 // Ativando e desativando o debug
 if(keyboard_check_released(vk_tab))
 {

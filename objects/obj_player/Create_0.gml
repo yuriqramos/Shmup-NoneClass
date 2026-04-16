@@ -1,14 +1,11 @@
 ///@description Sistema de movimentação do jogador
 
-// Iniciando as ariávels
+// Iniciando as variávels
 
 #region Variáveis
 
 // Velocidade do jogador
 vel_jogador = 3;
-
-// Velocidade dos tiros
-vel_tiros = -10
 
 // Vidas
 vidas = 3;
@@ -32,6 +29,12 @@ timer_invencivel = 0
 
 // Level do meu tiro
 level_tiro = 1;
+
+// Variável da escala x para desenhar o sprite
+xscale = 1;
+
+// Variável da escala y para desenhar o sprite
+yscale = 1;
 
 #endregion
 
@@ -96,6 +99,10 @@ level_tiro = 1;
 		// Criando o tiro quando aperta a tecla e se o timer estiver zerado
 		if (_atirar && timer_tiro <= 0)
 		{	
+			// Mudando o tamanho do player
+			xscale = 1.5;
+			yscale = 0.8;
+			
 			// Checando o nível do tiro
 			if(level_tiro == 1)
 			{
@@ -155,9 +162,6 @@ level_tiro = 1;
 	{
 		// Criando o tiro no meio da nave
 		var _tiro = instance_create_layer(x, y - 3, "tiros", obj_tiro_player);
-		
-		// Definindo a velocidade
-		_tiro.vspeed = vel_tiros;
 	}
 	
 	tiros_lados = function()
@@ -165,14 +169,8 @@ level_tiro = 1;
 		// Criando o tiro no lado esquerdo
 		var _tiro_esqu = instance_create_layer(x - 7, y, "tiros", obj_tiro_player);
 		
-		// Definindo a velocidade do tiro da esquerda
-		_tiro_esqu.vspeed = vel_tiros;
-		
 		// Criando o tiro no lado direito
 		var _tiro_dire = instance_create_layer(x + 7, y, "tiros", obj_tiro_player);
-		
-		// Definindo a velocidade do tiro da esquerda
-		_tiro_dire.vspeed = vel_tiros;
 	}
 	
 	tiros_maximo = function()
