@@ -1,8 +1,7 @@
-///@description Debug do jogo
+///@description Desenha efeitos e debug
 
-// Me desenhando
-draw_self();
-
+// Desenhando os efeitos brancos e mola
+desenha_efeito_branco(desenha_efeito_mola);
 // Debug
 if(global.debug)
 {

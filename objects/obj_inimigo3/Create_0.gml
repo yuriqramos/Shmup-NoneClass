@@ -23,6 +23,12 @@ fugindo_limite = 3;
 // Variável de decisão de direção
 decidi_direcao = false;
 
+// Inicia o efeito mola
+inicia_efeito_mola();
+
+// Inicia o efeito mola
+inicia_efeito_branco();
+
 #endregion
 
 #region Máquina de estado
@@ -177,6 +183,12 @@ morrendo = function ()
 	
 	// Tremendo tela
 	tremendo_tela(5);
+	
+	// Efeito mola
+	efeito_mola(1.5, .5);
+	
+	// Efeito branco
+	timer_efeito_branco(5);
 	
 	// SE não tiver mais vida
 	if(vida <= 0)

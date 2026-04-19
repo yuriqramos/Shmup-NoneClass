@@ -13,12 +13,13 @@ vidas = 3;
 // Escudos
 escudos = 3;
 
+// Checa se o escudo tá ativo
 meu_escudo = noone;
 
 // Espera dos tiros
 espera_tiro = 10;
 
-// Ttimer dos tiroseee
+// Timer dos tiros
 timer_tiro = 0;
 
 // Tempo de invencibilidade
@@ -30,11 +31,12 @@ timer_invencivel = 0
 // Level do meu tiro
 level_tiro = 1;
 
-// Variável da escala x para desenhar o sprite
-xscale = 1;
 
-// Variável da escala y para desenhar o sprite
-yscale = 1;
+// Escalas para desenhar o sprite e o efeito de mola
+inicia_efeito_mola();
+
+// Inicia a variável para o efeito de dano
+inicia_efeito_branco();
 
 #endregion
 
@@ -100,8 +102,7 @@ yscale = 1;
 		if (_atirar && timer_tiro <= 0)
 		{	
 			// Mudando o tamanho do player
-			xscale = 1.5;
-			yscale = 0.8;
+			efeito_mola(1.5, .8);
 			
 			// Checando o nível do tiro
 			if(level_tiro == 1)
@@ -232,6 +233,12 @@ yscale = 1;
 		
 		// Tremendo a tela quando leva dano
 		tremendo_tela(20);
+		
+		// Efeito mola quando leva dano
+		efeito_mola(2, .5);
+		
+		// Define dado dado
+		timer_efeito_branco(5);
 		
 		// Checa se o jogador ficou sem vidas
 		if(vidas <= 0)
