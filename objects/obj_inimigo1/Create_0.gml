@@ -15,6 +15,9 @@ morrendo = function()
 	// Treme a tela
 	tremendo_tela(5);
 	
+	//Efeito sonoro
+	efeito_som(sfx_explosion, 0.1);
+	
 	// Variável de chance de criar o powerup
 	var _chance = random(100);
 	

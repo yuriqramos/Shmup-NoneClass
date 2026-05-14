@@ -1,0 +1,1 @@
+if(global.transicao == true) criando_transicao(sq_transicao_fechando);

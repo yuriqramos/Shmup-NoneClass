@@ -110,6 +110,9 @@ maquina_de_estado = function()
 				
 				// Ângulo da imagem do tiro
 				_tiro.image_angle = _dir + 90;
+				
+				// Toca o efeito sonoro
+				efeito_som(sfx_laser2, .1);
 			}
 
 			// Mudando o estado para carregando
@@ -123,6 +126,9 @@ maquina_de_estado = function()
 		{
 			// Variável do ângulo dos tiros
 			var _tiro_ang = 255;
+			
+			// Toca o efeito sonoro
+			efeito_som(sfx_laser2, .1);
 			
 			// Repetindo a criação do tiro
 			repeat(3)
@@ -198,6 +204,9 @@ morrendo = function ()
 		
 		// Treme a tela
 		tremendo_tela(10);
+		
+		//Efeito sonoro
+		efeito_som(sfx_explosion, 0.1);
 	}
 }
 

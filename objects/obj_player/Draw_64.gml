@@ -4,7 +4,7 @@
 if(global.debug)
 {
 	// Debug do level do tiro
-	draw_text(x, y + 10, level_tiro);
+	draw_text(x, y, level_tiro);
 }
 
 // Variável de tamanho da tela para a GUI

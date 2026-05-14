@@ -1,7 +1,5 @@
 ///@description Sistema de movimentação do jogador
 
-// Iniciando as variávels
-
 #region Variáveis
 
 // Velocidade do jogador
@@ -39,8 +37,6 @@ inicia_efeito_mola();
 inicia_efeito_branco();
 
 #endregion
-
-// Método de controle do jogador
 
 #region Métodos
 
@@ -103,6 +99,12 @@ inicia_efeito_branco();
 		{	
 			// Mudando o tamanho do player
 			efeito_mola(1.5, .8);
+			
+			// Para de tocar o efeito de som que estiver tocando
+			audio_stop_sound(sfx_laser1);
+			
+			// Tocando o efeito sonoro
+			efeito_som(sfx_laser1, .1);
 			
 			// Checando o nível do tiro
 			if(level_tiro == 1)
@@ -243,11 +245,20 @@ inicia_efeito_branco();
 		// Checa se o jogador ficou sem vidas
 		if(vidas <= 0)
 		{
+			// Explodindo o jogador
+			instance_create_layer(obj_player.x, obj_player.y, "efeitos", obj_player_explosao);
+			
 			// Destrói o jogador
 			instance_destroy();
 			
 			// Treme a tela mais forte
 			tremendo_tela(50);
+			
+			// Definindo a room de saída
+			global.destino = rm_inicio;
+			
+			// Faz a transição para o menu
+			criando_transicao(sq_transicao_abrindo);
 		}
 		else
 		{
@@ -271,6 +282,9 @@ inicia_efeito_branco();
 		{
 			// Diminui a quantidade de escudos
 			escudos--;
+			
+			// Efeito sonoro
+			efeito_som(sfx_shieldUp);
 		
 			// Cria o escudo
 			meu_escudo = instance_create_layer(x, y, "escudo", obj_escudo);
@@ -301,5 +315,18 @@ inicia_efeito_branco();
 	}
 	
 	#endregion
+
+#endregion
+
+#region Códigos avulsos
+
+// Para todo o áudio que estiver tocando
+audio_stop_all();
+
+// Toca a música de fundo
+audio_play_sound(musica_fundo, 0, 1);
+
+// Cria a transição na posição do player
+layer_sequence_create("sq_transicao", x, y, sq_transicao_fechando);
 
 #endregion

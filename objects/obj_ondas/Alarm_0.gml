@@ -19,4 +19,4 @@ else
 }
 
 // Toca o alarme de novo para criar a próxima onda
-//alarm[0] = 600 // 10 segundos
+alarm[0] = 600 // 10 segundos

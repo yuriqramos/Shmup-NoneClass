@@ -10,8 +10,8 @@
   "name":"obj_screenshake",
   "overriddenProperties":[],
   "parent":{
-    "name":"Misc",
-    "path":"folders/Objects/Misc.yy",
+    "name":"Efeitos",
+    "path":"folders/Objects/Efeitos.yy",
   },
   "parentObjectId":null,
   "persistent":false,
