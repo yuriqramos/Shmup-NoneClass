@@ -254,6 +254,9 @@ inicia_efeito_branco();
 			// Treme a tela mais forte
 			tremendo_tela(50);
 			
+			// Efeito sonoro
+			efeito_som(sfx_lose, 0);
+			
 			// Definindo a room de saída
 			global.destino = rm_inicio;
 			

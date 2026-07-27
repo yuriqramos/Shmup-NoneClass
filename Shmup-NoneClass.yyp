@@ -53,6 +53,7 @@
   "name":"Shmup-NoneClass",
   "resources":[
     {"id":{"name":"fnt_menu","path":"fonts/fnt_menu/fnt_menu.yy",},},
+    {"id":{"name":"O que fazer","path":"notes/O que fazer/O que fazer.yy",},},
     {"id":{"name":"obj_escudo","path":"objects/obj_escudo/obj_escudo.yy",},},
     {"id":{"name":"obj_inimigo_explosao","path":"objects/obj_inimigo_explosao/obj_inimigo_explosao.yy",},},
     {"id":{"name":"obj_inimigo1_tiro","path":"objects/obj_inimigo1_tiro/obj_inimigo1_tiro.yy",},},
