@@ -1,5 +1,8 @@
 ///@description Movimento e debug
 
+// O movimento para quando o hitstop estiver ativo
+if (global.hitstop) exit;
+
 //Controlando o jogador
 controla_player();
 

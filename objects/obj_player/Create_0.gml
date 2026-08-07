@@ -233,26 +233,17 @@ inicia_efeito_branco();
 		// Se o jogador estiver invencível, sai da função
 		if(timer_invencivel > 0) return; 
 		
-		// Tremendo a tela quando leva dano
-		tremendo_tela(20);
-		
-		// Efeito mola quando leva dano
-		efeito_mola(2, .5);
-		
-		// Define dado dado
-		timer_efeito_branco(5);
-		
 		// Checa se o jogador ficou sem vidas
 		if(vidas <= 0)
 		{
 			// Explodindo o jogador
 			instance_create_layer(obj_player.x, obj_player.y, "efeitos", obj_player_explosao);
+            
+            // Treme a tela mais forte
+			tremendo_tela(50);
 			
 			// Destrói o jogador
 			instance_destroy();
-			
-			// Treme a tela mais forte
-			tremendo_tela(50);
 			
 			// Efeito sonoro
 			efeito_som(sfx_lose, 0);
@@ -263,10 +254,22 @@ inicia_efeito_branco();
 			// Faz a transição para o menu
 			criando_transicao(sq_transicao_abrindo);
 		}
-		else
+		else // Se estiver com vida, leva só dano
 		{
 			// Diminui a vida do jogador
 			vidas--;
+            
+            // Treme a tela
+			tremendo_tela(20);
+            
+            // Para o movimento
+            hitstop_ativa(5);
+            
+            // Efeito mola quando leva dano 
+            efeito_mola(2, .5); 
+            
+            // Define efeito branco
+            timer_efeito_branco(5);
 			
 			// Começa o tempo de invencibilidade
 			timer_invencivel = tempo_invencivel;

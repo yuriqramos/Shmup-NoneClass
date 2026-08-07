@@ -5,6 +5,14 @@
 // Variável de vida do inimigo
 vida = 10;
 
+// Velocidade
+vel = 1;
+velv = 0;
+velh = 0;
+
+// Direção
+dir = 0;
+
 // Variável de estado
 estado = "chegando"
 
@@ -18,7 +26,7 @@ timer_carregando = 0
 contador_tiros = 0;
 
 // Variável com o limite de tiros para fugir
-fugindo_limite = 3;
+fugindo_limite = 5;
 
 // Variável de decisão de direção
 decidi_direcao = false;
@@ -45,7 +53,7 @@ maquina_de_estado = function()
 			if(y < 160)
 			{
 				// Ele vai descendo pela tela
-				vspeed = 1.2;
+				velv = vel;
 			}
 			else
 			{
@@ -58,10 +66,10 @@ maquina_de_estado = function()
 		
 		// Caso onde o inimigo carrega o tiro
 		case "carregando":
-		{
+        {
 			// Para a nave
-			vspeed = 0;
-			
+			velv = 0;
+            
 			// Aumenta o timer
 			timer_carregando++;
 			
@@ -80,15 +88,17 @@ maquina_de_estado = function()
 					// Aumenta o contador de tiros
 					contador_tiros++;
 				}
-			}
+            }
 			else
 			{
 				// Muda o estado para fugindo
 				estado = "fugindo";
+                
+                // Definindo a direção de forma aleatória
+                dir = irandom(359);
 			}
-		}
-		
-		break;
+		} 
+        break;
 		
 		// Caso onde o inimigo atira o tiro 1
 		case "atirando1":
@@ -98,13 +108,21 @@ maquina_de_estado = function()
 			{
 				// Direção do tiro
 				var _dir = point_direction(x, y, obj_player.x, obj_player.y);
+                
+                // Criando a instância do tiro
+                var _tiro = instance_create_layer(x, y, "tiros", obj_inimigo3_tiro1);
+                
+                // Velocidade do tiro
+                var _vel = 5;
 			
-				// Criando o tiro 1
-				var _tiro = instance_create_layer(x, y, "tiros", obj_inimigo3_tiro1);
-			
-				// Definindo a velocidade do tiro
-				_tiro.speed = 2;
-			
+                // Variáveis de velocidade nos eixos
+				var _velh = lengthdir_x(_vel, _dir);
+                var _velv = lengthdir_y(_vel, _dir);
+                
+                // Definindo o tiro
+                _tiro.velh = _velh;
+                _tiro.velv = _velv;
+                 
 				// Definindo a direção do tiro
 				_tiro.direction = _dir;
 				
@@ -113,12 +131,12 @@ maquina_de_estado = function()
 				
 				// Toca o efeito sonoro
 				efeito_som(sfx_laser2, .1);
-			}
-
+            }
+            
 			// Mudando o estado para carregando
 			estado = "carregando";
-		}
-		
+        }
+            
 		break;
 		
 		// Caso onde o inimigo cria o tiro 2
@@ -135,21 +153,26 @@ maquina_de_estado = function()
 			{
 				// Criando o tiro 2
 				var _tiro = instance_create_layer(x, y, "tiros", obj_inimigo3_tiro2);
-			
-				// Velcidade do tiro
-				_tiro.speed = 4;
-			
-				// Direção do tiro 
-				_tiro.direction = _tiro_ang;
-				
+                
+                // Velocidade do tiro
+				var _vel = _tiro.vel;
+                
+                // Direção do tino nos doie eixos
+                var _velh = lengthdir_x(_vel, _tiro_ang);
+                var _velv = lengthdir_y(_vel, _tiro_ang);
+                
+                // Definindo a direção no tiro
+                _tiro.velh = _velh;
+                _tiro.velv = _velv;
+                
 				// Aumenta o ângulo para o próximo tiro
 				_tiro_ang += 15;
 			}
-			
+            
 			// Volta para o estado de carregando
 			estado = "carregando";
 		}
-		
+            
 		break;
 		
 		// Caso onde o inimigo foge
@@ -160,17 +183,15 @@ maquina_de_estado = function()
 			if (decidi_direcao = false)
 			{
 				// Escolhe uma direção para fugir
-				hspeed = choose(-1, 1);
+				velh = lengthdir_x(vel, dir);
+                velv = lengthdir_y(vel, dir);
 				
 				// Define a variável de decisão
 				decidi_direcao = true;
 			}
 			
-			// Vai para cima para fugir
-			vspeed = -2;
-			
 			// Checa se o inimigo saiu da tela, e destroi ele se saiu
-			if (y < - 50) instance_destroy();
+			if (y < - 100 or y > room_height + 100 or x < -100 or x > room_width + 100) instance_destroy();
 		}
 		
 		break;
@@ -189,6 +210,9 @@ morrendo = function ()
 	
 	// Tremendo tela
 	tremendo_tela(5);
+    
+    // Hitstop
+    hitstop_ativa(2);
 	
 	// Efeito mola
 	efeito_mola(1.5, .5);
