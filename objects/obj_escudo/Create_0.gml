@@ -1,9 +1,12 @@
 ///@description Configurações iniciais
 
 // Aumentando o tamanho da sprite
+image_xscale = 1.2  // Escala X
+image_yscale = 1.2  // Escala Y
 
-// Escala X
-image_xscale = 1.2
+// Timer e tempo do escudo
+escudo_tempo = game_get_speed(gamespeed_fps) * 2;  // 2 seg
+escudo_timer = escudo_tempo;
 
-// Escala Y
-image_yscale = 1.2
+// Variável para marcar se o som foi tocado
+toquei_som = false;
