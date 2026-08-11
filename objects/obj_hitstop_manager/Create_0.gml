@@ -3,6 +3,9 @@
 // Variável do timer
 timer_hitstop = 0;
 
+// Lista dos backgrounds
+lista_backgrounds = pega_backgrounds();
+
 // Módulo de timer do hitstop
 hitstop_desfazendo = function()
 {
