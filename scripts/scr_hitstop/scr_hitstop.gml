@@ -52,3 +52,21 @@ function pega_backgrounds()
     // Retorna o array de backgrounds
     return _bgs;
 }
+
+// Função que trava os backgrounds
+function trava_backgrounds(_lista_backgrounds)
+{
+    // Quantidade de itens na lista
+    var _qtd = array_length(_lista_backgrounds);
+    
+    // Loop FOR que vai checando pela lista de backgrounds
+    for (var i = 0; i < _qtd; i++) 
+    {
+        // Nome da camada atual
+        var _atual = _lista_backgrounds[i];
+        
+        // Define a velocidade da camada para 0 nos eixos
+    	layer_hspeed(_atual, 0);
+        layer_vspeed(_atual, 0);
+    }
+}
