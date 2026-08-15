@@ -62,11 +62,40 @@ function trava_backgrounds(_lista_backgrounds)
     // Loop FOR que vai checando pela lista de backgrounds
     for (var i = 0; i < _qtd; i++) 
     {
-        // Nome da camada atual
+        // ID da camada atual
         var _atual = _lista_backgrounds[i];
+        
+        // Pegando as velocidades da camada atual
+        var _hspeed = layer_get_hspeed(_atual);
+        var _vspeed = layer_get_vspeed(_atual);
+        
+        // Guardando a velocidade da camada atual
+        array_push(other.bgs_hspeed, _hspeed);
+        array_push(other.bgs_vspeed, _vspeed);
         
         // Define a velocidade da camada para 0 nos eixos
     	layer_hspeed(_atual, 0);
         layer_vspeed(_atual, 0);
+    }
+}
+
+// Função que destrava os backgrounds
+function destrava_backgrounds(_lista_backgrounds, _bgs_hspeed, _bgs_vspeed)
+{
+    // Quantidade de camadas
+    var _qtd = array_length(_lista_backgrounds);
+    
+    for (var i = 0; i < _qtd; i++)
+    {
+    	// ID da camada atual
+        var _atual = _lista_backgrounds[i];
+        
+        // Pegando as velocidades salvas da camada
+        var _hspeed = _bgs_hspeed[i];
+        var _vspeed = _bgs_vspeed[i];
+        
+        // Definindo a velocidade nas camadas
+        layer_hspeed(_atual, _hspeed);
+        layer_vspeed(_atual, _vspeed);
     }
 }

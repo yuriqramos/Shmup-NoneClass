@@ -1,5 +1,3 @@
-show_debug_message(global.hitstop);
-
 // Se o hitstop está ativo, timer ativa
 hitstop_desfazendo();
 

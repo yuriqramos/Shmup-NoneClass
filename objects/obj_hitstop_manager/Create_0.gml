@@ -6,6 +6,10 @@ timer_hitstop = 0;
 // Lista dos backgrounds
 lista_backgrounds = pega_backgrounds();
 
+// Velocidae original dos backgrounds
+bgs_hspeed = [];
+bgs_vspeed = [];
+
 // Módulo de timer do hitstop
 hitstop_desfazendo = function()
 {
@@ -23,6 +27,9 @@ hitstop_desfazendo = function()
     {
         // Hitstop desativado
         global.hitstop = false;
+        
+        // Destrava a velocidade dos backgrounds
+        destrava_backgrounds(lista_backgrounds, bgs_hspeed, bgs_vspeed);
         
         // Ativa a animação de todo mundo novamente
         with(all) image_speed = 1;    
