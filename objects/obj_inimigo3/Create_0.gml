@@ -212,7 +212,7 @@ morrendo = function ()
 	tremendo_tela(5);
     
     // Hitstop
-    hitstop_ativa(2);
+    hitstop_ativa(5);
 	
 	// Efeito mola
 	efeito_mola(1.5, .5);

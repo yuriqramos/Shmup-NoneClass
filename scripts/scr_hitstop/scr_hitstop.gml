@@ -13,6 +13,9 @@ function hitstop_ativa(_tempo = 30)
     // Define o tempo do hitstop
     obj_hitstop_manager.timer_hitstop = _tempo;
     
+    // Travando o fundo
+    trava_backgrounds(obj_hitstop_manager.lista_backgrounds);
+    
     // Ativa o hitstop
     global.hitstop = true;
 }
@@ -70,8 +73,8 @@ function trava_backgrounds(_lista_backgrounds)
         var _vspeed = layer_get_vspeed(_atual);
         
         // Guardando a velocidade da camada atual
-        array_push(other.bgs_hspeed, _hspeed);
-        array_push(other.bgs_vspeed, _vspeed);
+        array_push(obj_hitstop_manager.bgs_hspeed, _hspeed);
+        array_push(obj_hitstop_manager.bgs_vspeed, _vspeed);
         
         // Define a velocidade da camada para 0 nos eixos
     	layer_hspeed(_atual, 0);

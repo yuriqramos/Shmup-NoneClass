@@ -51,7 +51,7 @@ morrendo = function()
 	tremendo_tela(5);
     
     // Hitstop
-    hitstop_ativa(2);
+    hitstop_ativa(3);
 	
 	//Efeito sonoro
 	efeito_som(sfx_explosion, 0.1);

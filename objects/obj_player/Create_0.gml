@@ -160,20 +160,32 @@ inicia_efeito_branco();
 	#endregion
 
 	#region Criando os tiros
+
+    // Variavel de variação do tiro
 	
 	tiro_meio = function()
 	{
-		// Criando o tiro no meio da nave
-		var _tiro = instance_create_layer(x, y - 3, "tiros", obj_tiro_player);
+        // Mudança do x
+        var _x_range = 5;
+        // X do tiro
+        var _x = x + random_range(-_x_range, _x_range);
+        
+		// Criando o tiro
+		var _tiro = instance_create_layer(_x, y - 3, "tiros", obj_tiro_player);
 	}
 	
 	tiros_lados = function()
 	{
+        // Mudança do x
+        var _x_range = 5;
+        // X do tiro
+        var _x = x + random_range(-_x_range, _x_range);
+        
 		// Criando o tiro no lado esquerdo
-		var _tiro_esqu = instance_create_layer(x - 7, y, "tiros", obj_tiro_player);
+		var _tiro_esqu = instance_create_layer(_x - 7, y, "tiros", obj_tiro_player);
 		
 		// Criando o tiro no lado direito
-		var _tiro_dire = instance_create_layer(x + 7, y, "tiros", obj_tiro_player);
+		var _tiro_dire = instance_create_layer(_x + 7, y, "tiros", obj_tiro_player);
 	}
 	
 	tiros_maximo = function()
@@ -241,6 +253,9 @@ inicia_efeito_branco();
             
             // Treme a tela mais forte
 			tremendo_tela(50);
+            
+            // Hitstop
+            hitstop_ativa(10);
 			
 			// Destrói o jogador
 			instance_destroy();
