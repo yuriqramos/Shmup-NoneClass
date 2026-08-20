@@ -19,3 +19,9 @@ velv = lerp(velv, -vel, 0.1);
 
 // Define a vel do tiro
 y += velv;
+
+// Cria o rastro
+var _rastro = instance_create_depth(x, y, depth, obj_tiro_rastro);
+
+// Passa a mesma cor do tiro para o rastro
+_rastro.cor = cor;

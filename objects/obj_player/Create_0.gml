@@ -1,5 +1,7 @@
 ///@description Sistema de movimentação do jogador
 
+show_debug_overlay(true);
+
 #region Variáveis
 
 // Velocidade do jogador

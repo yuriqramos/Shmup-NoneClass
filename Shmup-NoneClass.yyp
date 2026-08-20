@@ -73,6 +73,7 @@
     {"id":{"name":"obj_powerup_tiro","path":"objects/obj_powerup_tiro/obj_powerup_tiro.yy",},},
     {"id":{"name":"obj_screenshake","path":"objects/obj_screenshake/obj_screenshake.yy",},},
     {"id":{"name":"obj_tiro_player","path":"objects/obj_tiro_player/obj_tiro_player.yy",},},
+    {"id":{"name":"obj_tiro_rastro","path":"objects/obj_tiro_rastro/obj_tiro_rastro.yy",},},
     {"id":{"name":"obj_tutorial","path":"objects/obj_tutorial/obj_tutorial.yy",},},
     {"id":{"name":"rm_inicio","path":"rooms/rm_inicio/rm_inicio.yy",},},
     {"id":{"name":"rm_jogo","path":"rooms/rm_jogo/rm_jogo.yy",},},

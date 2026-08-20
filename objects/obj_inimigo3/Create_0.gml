@@ -142,8 +142,11 @@ maquina_de_estado = function()
 		// Caso onde o inimigo cria o tiro 2
 		case "atirando2":
 		{
+            // Variação do tiro
+            var _range = 5;
+            
 			// Variável do ângulo dos tiros
-			var _tiro_ang = 255;
+			var _tiro_ang = 255 + random_range(-_range, _range);
 			
 			// Toca o efeito sonoro
 			efeito_som(sfx_laser2, .1);
