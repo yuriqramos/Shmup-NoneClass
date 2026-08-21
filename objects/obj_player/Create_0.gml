@@ -1,7 +1,5 @@
 ///@description Sistema de movimentação do jogador
 
-show_debug_overlay(true);
-
 #region Variáveis
 
 // Velocidade do jogador
@@ -258,6 +256,9 @@ inicia_efeito_branco();
             
             // Hitstop
             hitstop_ativa(10);
+            
+            // Flash de dano
+            damage_flash_ativa(c_red);
 			
 			// Destrói o jogador
 			instance_destroy();
@@ -281,6 +282,9 @@ inicia_efeito_branco();
             
             // Para o movimento
             hitstop_ativa(5);
+            
+            // Flash de dano
+            damage_flash_ativa(c_red);
             
             // Efeito mola quando leva dano 
             efeito_mola(2, .5); 
